@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu MVP</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { font-family: Arial; margin:0; background:#f5f5f5; }
+    .container { padding: 12px; }
+    .card { background:#fff; border-radius:12px; padding:12px; margin-bottom:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08);} 
+    .title { font-weight:700; }
+    .row { display:flex; justify-content:space-between; align-items:center; }
+    .controls button { width:32px; height:32px; }
+    .cart { position:fixed; bottom:0; left:0; right:0; background:#fff; padding:10px; box-shadow:0 -2px 8px rgba(0,0,0,0.1);} 
+    .btn { width:100%; padding:12px; border:none; border-radius:10px; background:#2ea6ff; color:#fff; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <div class="container" id="menu"></div>
+  <div class="cart">
+    <div id="total">Итого: 0 ₽</div>
+    <button class="btn" onclick="checkout()">Оформить</button>
+  </div>
+
+<script>
+const data = [
+  { id:1, name:"Шаурма", price:250, composition:"курица, лаваш" },
+  { id:2, name:"Бургер", price:300, composition:"говядина, сыр" }
+];
+
+let cart = {};
+
+function render(){
+  const menu = document.getElementById('menu');
+  menu.innerHTML = '';
+
+  data.forEach(item => {
+    const count = cart[item.id] || 0;
+
+    menu.innerHTML += `
+      <div class="card">
+        <div class="title">${item.name}</div>
+        <div>${item.composition}</div>
+        <div class="row">
+          <div>${item.price} ₽</div>
+          <div class="controls">
+            <button onclick="dec(${item.id})">-</button>
+            ${count}
+            <button onclick="inc(${item.id})">+</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  updateTotal();
+}
+
+function inc(id){ cart[id] = (cart[id]||0)+1; render(); }
+function dec(id){ if(cart[id]) cart[id]--; render(); }
+
+function updateTotal(){
+  let total = 0;
+  data.forEach(i => total += (cart[i.id]||0)*i.price);
+  document.getElementById('total').innerText = 'Итого: ' + total + ' ₽';
+}
+
+function checkout(){
+  let text = 'Заказ:\n';
+  data.forEach(i => {
+    if(cart[i.id]) text += `${i.name} x${cart[i.id]}\n`;
+  });
+
+  if(window.Telegram.WebApp){
+    Telegram.WebApp.sendData(text);
+  } else {
+    alert(text);
+  }
+}
+
+render();
+</script>
+</body>
+</html>
