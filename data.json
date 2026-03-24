@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Шаурма",
+    "name": "Ебля",
     "price": 250,
     "composition": "курица, лаваш",
     "image": ""
   },
   {
     "id": 2,
-    "name": "Бургер",
+    "name": "Жесткая",
     "price": 300,
     "composition": "говядина, сыр",
     "image": ""
