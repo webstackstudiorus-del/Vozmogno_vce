@@ -11,28 +11,28 @@
     "name": "Блинчики с луком и яйцом (2 шт)",
     "price": 150,
     "composition": "Микс зелени, булгур, копчёная паприка, запечённый сыр халуми, томат, перепелиное яйцо, копчёный цыплёнок, медово-горчичная заправка",
-    "image": "images/bowl_chicken.jpg"
+    "image": "images/desert.jpg"
   },
   {
     "id": 3,
     "name": "Блинчики с творогом (2 шт)",
     "price": 150,
     "composition": "",
-    "image": "images/bliny_indeyka.jpg"
+    "image": "images/bowl_chickens.jpg"
   },
   {
     "id": 4,
     "name": "Блины с индейкой и сыром",
     "price": 250,
     "composition": "Блины, индейка, сметана, твёрдый сыр",
-    "image": ""
+    "image": "images/desert.jpg"
   },
   {
     "id": 5,
     "name": "Блины с красной рыбой и кремчиз",
     "price": 190,
     "composition": "",
-    "image": ""
+    "image": "images/bowl_chickens.jpg"
   },
   {
     "id": 6,
