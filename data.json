@@ -4,21 +4,21 @@
     "name": "Блинчики с лососем и крем чиз",
     "price": 210,
     "composition": "Блины, индейка, сметана, твёрдый сыр",
-    "image": ""
+    "image": "images/bliny_indeyka.jpg"
   },
   {
     "id": 2,
     "name": "Блинчики с луком и яйцом (2 шт)",
     "price": 150,
     "composition": "Микс зелени, булгур, копчёная паприка, запечённый сыр халуми, томат, перепелиное яйцо, копчёный цыплёнок, медово-горчичная заправка",
-    "image": ""
+    "image": "images/bowl_chicken.jpg"
   },
   {
     "id": 3,
     "name": "Блинчики с творогом (2 шт)",
     "price": 150,
     "composition": "",
-    "image": ""
+    "image": "images/bliny_indeyka.jpg"
   },
   {
     "id": 4,
